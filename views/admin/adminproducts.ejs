@@ -14,7 +14,7 @@
         class="flex items-center justify-start md:justify-center pl-3 w-14 md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
         <img class="w-7 h-7 md:w-10 md:h-10 mr-2 rounded-md overflow-hidden"
           src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-        <span class="hidden md:block">ADMIN DASHBOARD</span>
+        <span class="hidden md:block">NGO dashboard</span>
       </div>
       <div class="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
         <div class="bg-white rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm border border-gray-200">
@@ -112,36 +112,37 @@
         <!--  -->
         <div
           class=" flex flex-col justify-center items-center rounded p-2 m-8 w-8/10 bg-blue-800 dark:bg-gray-900 h-full">
-          <h1 class="text-gray-200 text-3xl">Add / Edit Products</h1>
+          <h1 class="text-gray-200 text-3xl">Add NGO</h1>
 
 
           <form id="add-update-product" class="grid grid-cols-1 md:grid-cols-2 p-3 w-full">
 
             <div class="grid grid-cols-4">
-              <label class="col-span-1 text-white text-xl" for="">Sno</label>
+              <label class="col-span-1 text-white text-xl" for="">S.no</label>
               <input class="col-span-3 mr-5 mb-3 rounded text-black p-1" required type="tnumber" name="" id="add-sno">
             </div>
             <div class="grid grid-cols-4">
-              <label class="col-span-1 text-white text-xl" for="">Product Name</label>
+              <label class="col-span-1 text-white text-xl" for="">NGO Name </label>
               <input class="col-span-3 mr-5 mb-3 rounded text-black p-1" required type="text" name="" id="add-pname">
             </div>
             <div class="grid grid-cols-4">
-              <label class="col-span-1 text-white text-xl" for="">Packing</label>
+              <label class="col-span-1 text-white text-xl" for="">Location</label>
               <input class="col-span-3 mr-5 mb-3 md:mb-0 required rounded text-black p-1" type="text" name=""
                 id="add-packing">
             </div>
             <div class="grid grid-cols-4">
-              <label class="col-span-1 text-white text-xl" for="">Shipper</label>
+              <label class="col-span-1 text-white text-xl" for="">Pincode</label>
               <input class="col-span-3 mr-5 rounded text-black p-1" type="text" name="" id="add-shipper">
             </div>
-            <div class="grid grid-cols-4 mt-3">
+            <div class="grid grid-cols-4 hidden mt-3">
               <label class="col-span-1 text-white text-xl" for="">Rate</label>
-              <input class="col-span-3 mr-5 md:mb-0 rounded required text-black p-1" type="number" name=""
+              <input class="col-span-3 mr-5 md:mb-0 rounded required text-black p-1" value="1" type="number" name=""
                 id="add-rate">
             </div>
-            <div class="grid grid-cols-4 mt-3">
+            <div class="grid grid-cols-4 hidden mt-3">
               <label class="col-span-1 text-white text-xl" for="">Batch</label>
-              <input class="col-span-3 mr-5 mb-3 md:mb-0 rounded text-black p-1" type="text" name="" id="add-batch">
+              <input class="col-span-3 mr-5 mb-3 md:mb-0 rounded text-black p-1" value="1" type="text" name=""
+                id="add-batch">
             </div>
             <p></p>
             <button class="rounded bg-green-400 md:mt-3 p-2" type="submit">Add/Update</button>
@@ -201,12 +202,12 @@
 
         <div
           class="h-12 grid grid-cols-8 items-center px-5 text-sm md:text-lg w-auto border-b-4 border-gray-500 m-5  rounded bg-blue-700 dark:bg-gray-900 text-white">
-          <h1 class="col-span-1">S.no</h1>
-          <h1 class="col-span-2">Product Name</h1>
-          <h1>Packing</h1>
-          <h1>Rate</h1>
-          <h1>Shipper</h1>
-          <h1>Batch</h1>
+          <h1 class="col-span-1">S.no.</h1>
+          <h1 class="col-span-2">NGO name</h1>
+          <h1>Location</h1>
+          <h1></h1>
+          <h1>Pincode</h1>
+          <h1></h1>
           <h1>Edit</h1>
         </div>
 
@@ -224,13 +225,13 @@
                 <%= data[i].packing %>
               </h1>
               <h1>
-                <%= data[i].rate %>
+                <!-- <%= data[i].rate %> -->
               </h1>
               <h1>
                 <%= data[i].shipper %>
               </h1>
               <h1>
-                <%= data[i].batch %>
+                <!-- <%= data[i].batch %> -->
               </h1>
               <h1>
                 <p onclick="edit({sno:'<%=data[i].sno%>',name:'<%=data[i].name%>',packing:'<%= data[i].packing %>',shipper:'<%= data[i].shipper %>',rate:'<%= data[i].rate %>',batch:'<%= data[i].batch %>'})"

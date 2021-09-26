@@ -56,13 +56,13 @@ const Admin = mongoose.model("Admin", adminSchema);
 // schema for products
 const productSchema = new mongoose.Schema(
   {
-    sno: { type: Number, required: true, unique: true },
-    name: { type: String, required: true },
-    packing: { type: String, required: true },
+    sno: { type: Number },
+    name: { type: String },
+    packing: { type: String },
     shipper: { type: String },
     batch: { type: String },
     quantity: { type: Number },
-    rate: { type: Number, required: true },
+    rate: { type: Number },
   },
   { collection: "products" }
 );
@@ -369,7 +369,7 @@ app.get("/orders", async (req, res) => {
 
 app.get("/login", (req, res) => {
   res.render("login", {
-    name: "User Login",
+    name: "Donor Login",
     aname: "Admin",
     route: "/login",
     aroute: "/admin/login",
@@ -378,7 +378,7 @@ app.get("/login", (req, res) => {
 
 app.get("/signup", (req, res) => {
   res.render("signup", {
-    name: "User SignUp",
+    name: "Donor SignUp",
     aname: "Admin",
     route: "/signup",
     aname: "Login",
@@ -450,10 +450,10 @@ app.get("/admin", async (req, res) => {
 
 app.get("/admin/login", (req, res) => {
   res.render("login", {
-    name: "Admin Login",
+    name: "NGO Login",
     aname: "User",
     route: "/admin/login",
-    aroute: "/login",
+    aroute: "",
   });
 });
 

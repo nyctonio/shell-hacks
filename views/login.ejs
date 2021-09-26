@@ -11,10 +11,11 @@
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
 </head>
 
-<body class="bg-gray-700">
+<body>
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
     <div
-      class="bg-gray-900 flex flex-col items-center justify-center min-h-screen p-4 space-y-4 antialiased text-gray-100">
+      style="background-image:url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80');"
+      class="flex flex-col items-center justify-center min-h-screen p-4 space-y-4 antialiased text-black">
       <!-- Brand -->
       <a class="inline-block mb-6 text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light">
         <%= name %>
@@ -36,14 +37,25 @@
             </div>
           </form>
           <span class="flex items-center justify-center space-x-2">
-            <span class="h-px bg-gray-400 w-14"></span>
-            <a href="/signup" class="font-normal text-white">Sign Up as Donor</a>
-            <span class="h-px bg-gray-400 w-14"></span>
+            <% if (aroute) { %>
+              <span class="h-px bg-gray-400 w-14"></span>
+              <a href="/signup" class="font-normal text-white">Sign Up as Donor</a>
+              <span class="h-px bg-gray-400 w-14"></span>
+              <% } else{ %>
+
+                <p class="text-white">Login Id->NGO </p>
+                <p class="text-white">Password->password</p>
+                <% } %>
           </span>
           <span class="flex items-center justify-center space-x-1">
-            <span class="h-px bg-gray-400 w-14"></span>
-            <a href=<%=aroute%> class="font-normal text-white" >Are you a NGO?</a>
-            <span class="h-px bg-gray-400 w-14"></span>
+            <% if (aroute) { %>
+              <span class="h-px bg-gray-400 w-14"></span>
+              <a href=<%=aroute%> class="font-normal text-white" >Are you a NGO?</a>
+              <span class="h-px bg-gray-400 w-14"></span>
+              <% } %>
+
+
+
           </span>
         </div>
       </main>
