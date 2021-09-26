@@ -297,26 +297,27 @@ app.post("/save-draft", (req, res) => {
 // user routes
 
 app.get("/", async (req, res) => {
-  const { token } = req.cookies;
-  if (verifyToken(token)) {
-    const verify = jwt.verify(token, JWT_SECRET);
-    try {
-      const prod = await Product.find({}).sort({ sno: 1 });
-      const order = await Order.find({ user: verify.username });
-      const showdata = {
-        products: prod.length,
-        orders: order.length,
-      };
-      res.render("dashboard", { data: showdata, username: verify.username });
-    } catch (error) {
-      return res.json({
-        status: "error",
-        error: "data took too long to fetch try again",
-      });
-    }
-  } else {
-    res.redirect("/login");
-  }
+  res.render("home");
+  // const { token } = req.cookies;
+  // if (verifyToken(token)) {
+  //   const verify = jwt.verify(token, JWT_SECRET);
+  //   try {
+  //     const prod = await Product.find({}).sort({ sno: 1 });
+  //     const order = await Order.find({ user: verify.username });
+  //     const showdata = {
+  //       products: prod.length,
+  //       orders: order.length,
+  //     };
+  //     res.render("dashboard", { data: showdata, username: verify.username });
+  //   } catch (error) {
+  //     return res.json({
+  //       status: "error",
+  //       error: "data took too long to fetch try again",
+  //     });
+  //   }
+  // } else {
+  //   res.redirect("/login");
+  // }
 });
 app.get("/products", async (req, res) => {
   const { token } = req.cookies;
